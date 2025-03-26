@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "kr4_v8/1.0.0": {
+        "runtime": {
+          "kr4_v8.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "kr4_v8/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
