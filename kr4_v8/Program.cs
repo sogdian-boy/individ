@@ -37,11 +37,32 @@ namespace kr4_v8
         }
         static void Main(string[] args)
         {
-            string[] test = { "5", "M(3,5)", "m(3,5)", "M(m(4,6),M(1,2))", "M(M(3,5),M(1,2))", "M(m(3,9),m(1,2))", "m(m(2,3),M(5,8))" };
+            Console.Write("Введите название файла (без расширения): ");
+            string fileName = Console.ReadLine();
+            string filePath = fileName + ".txt";
 
-            for (int i = 0; i < test.Length; i++)
+            try
             {
-                Console.WriteLine($"Формула = {test[i]}\nРезультат = {CalculateFormula(test[i])}");
+                // Чтение формулы из файла
+                string formula = File.ReadAllText(filePath).Trim();
+                Console.WriteLine($"Считана формула: {formula}");
+
+                // Вычисление результата
+                int result = CalculateFormula(formula);
+                Console.WriteLine($"Результат: {result}");
+
+                // Запись результата обратно в файл
+                File.WriteAllText(filePath, $"{formula}={result}");
+                Console.WriteLine($"Результат записан в файл: {filePath}");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine($"Файл {filePath} не найден.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Произошла ошибка: {ex.Message}");
+            }
                     }
         }
     }
